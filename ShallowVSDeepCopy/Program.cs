@@ -31,7 +31,7 @@ namespace ShallowVSDeepCopy
             Person p4 = p3.DeepCopy();
 
             //only make changes to p4, not p3 
-            p4.desc.FirstName = "Shane";            
+            p4.desc.FirstName = "Shane";
             p4.Age = 20;
             Console.WriteLine(p3.Age);
             Console.WriteLine(p4.Age);
@@ -39,38 +39,8 @@ namespace ShallowVSDeepCopy
             Console.WriteLine($"p4 Firstname = {p4.desc.FirstName}");
         }
     }
-
-    class Person
-    {
-        public int Age;
-        public PersonDescription desc;
-        public Person(int age, string f, string l)
-        {
-            this.Age = age;
-            desc = new PersonDescription(f, l);
-        }
-        public object ShallowCopy()
-        {
-            //creates a shallow copy of the current object
-            return this.MemberwiseClone();
-        }
-        public Person DeepCopy()
-        {
-            Person deepCopyPerson = new Person(this.Age, desc.FirstName, desc.LastName);
-            return deepCopyPerson;
-        }
-    }
-    class PersonDescription
-    {
-        public string FirstName;
-        public string LastName;
-
-        public PersonDescription(string f, string l)
-        {
-            this.FirstName = f;
-            this.LastName = l;
-        }
-    }
 }
+
+    
 
         
